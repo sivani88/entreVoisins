@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>MyNeighbourRecyclerViewAdapter.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #8c8c8c; font-style: italic;}
+.s3 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MyNeighbourRecyclerViewAdapter.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.openclassrooms.entrevoisins.ui.neighbour_list;</span>
+
+<span class="s0">import </span><span class="s1">android.content.ClipData;</span>
+<span class="s0">import </span><span class="s1">android.content.Context;</span>
+<span class="s0">import </span><span class="s1">android.content.Intent;</span>
+<span class="s0">import </span><span class="s1">android.support.v7.widget.RecyclerView;</span>
+<span class="s0">import </span><span class="s1">android.util.Log;</span>
+<span class="s0">import </span><span class="s1">android.view.LayoutInflater;</span>
+<span class="s0">import </span><span class="s1">android.view.View;</span>
+<span class="s0">import </span><span class="s1">android.view.ViewGroup;</span>
+<span class="s0">import </span><span class="s1">android.widget.AdapterView;</span>
+<span class="s0">import </span><span class="s1">android.widget.ImageButton;</span>
+<span class="s0">import </span><span class="s1">android.widget.ImageView;</span>
+<span class="s0">import </span><span class="s1">android.widget.TextView;</span>
+<span class="s0">import </span><span class="s1">android.widget.Toast;</span>
+
+
+<span class="s0">import </span><span class="s1">com.bumptech.glide.Glide;</span>
+<span class="s0">import </span><span class="s1">com.bumptech.glide.request.RequestOptions;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.R;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.events.DeleteFavoriteNeighbourEvent;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.model.Neighbour;</span>
+
+
+<span class="s0">import </span><span class="s1">org.greenrobot.eventbus.EventBus;</span>
+
+<span class="s0">import </span><span class="s1">java.util.List;</span>
+
+<span class="s0">import </span><span class="s1">butterknife.BindView;</span>
+<span class="s0">import </span><span class="s1">butterknife.ButterKnife;</span>
+
+
+
+<span class="s0">public class </span><span class="s1">MyNeighbourRecyclerViewAdapter </span><span class="s0">extends </span><span class="s1">RecyclerView.Adapter&lt;MyNeighbourRecyclerViewAdapter.ViewHolder&gt;  {</span>
+    <span class="s0">private </span><span class="s1">Context context;</span>
+    <span class="s0">private final  </span><span class="s1">List&lt;Neighbour&gt; mNeighbours;</span>
+    <span class="s0">private </span><span class="s1">ItemClickListener mItemClickListener;</span>
+    <span class="s0">private </span><span class="s1">Boolean isFavorite;</span>
+
+
+
+    <span class="s0">public </span><span class="s1">MyNeighbourRecyclerViewAdapter(Context context, List&lt;Neighbour&gt; items, NeighbourFragment mItemClickListener,  Boolean isFavorite) {</span>
+        <span class="s0">super</span><span class="s1">();</span>
+        <span class="s1">mNeighbours = items;</span>
+        <span class="s0">this</span><span class="s1">.context = context;</span>
+        <span class="s0">this</span><span class="s1">.mItemClickListener =  mItemClickListener;</span>
+        <span class="s0">this</span><span class="s1">.isFavorite = isFavorite;</span>
+
+    <span class="s1">}</span>
+
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">ViewHolder onCreateViewHolder(ViewGroup parent, </span><span class="s0">int </span><span class="s1">viewType) {</span>
+        <span class="s1">View view = LayoutInflater.from(parent.getContext())</span>
+                <span class="s1">.inflate(R.layout.fragment_neighbour, parent, </span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s0">return new </span><span class="s1">ViewHolder(view);</span>
+
+
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onBindViewHolder(</span><span class="s0">final </span><span class="s1">ViewHolder holder, </span><span class="s0">int </span><span class="s1">position) {</span>
+        <span class="s1">Neighbour neighbour = mNeighbours.get(position);</span>
+        <span class="s1">holder.mNeighbourName.setText(neighbour.getName());</span>
+        <span class="s1">Glide.with(holder.mNeighbourAvatar.getContext())</span>
+                <span class="s1">.load(neighbour.getAvatarUrl())</span>
+                <span class="s1">.apply(RequestOptions.circleCropTransform())</span>
+                <span class="s1">.into(holder.mNeighbourAvatar);</span>
+        <span class="s1">holder.itemView.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s0">if </span><span class="s1">(mItemClickListener != </span><span class="s0">null</span><span class="s1">) {</span>
+                    <span class="s0">int </span><span class="s1">position = holder.getAdapterPosition();</span>
+                    <span class="s0">if </span><span class="s1">(position != RecyclerView.NO_POSITION){</span>
+                       <span class="s2">// mItemClickListener.onItemClick((AdapterView) view.getParent(), view, position, holder.getItemId());</span>
+                        <span class="s1">mItemClickListener.onItemClick(position);</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+        <span class="s1">});</span>
+
+
+
+
+        <span class="s1">holder.mDeleteButton.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View v) {</span>
+
+                    <span class="s0">if </span><span class="s1">(isFavorite) {</span>
+                        <span class="s1">EventBus.getDefault().post(</span><span class="s0">new </span><span class="s1">DeleteFavoriteNeighbourEvent(neighbour));</span>
+                    <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+                        <span class="s1">EventBus.getDefault().post(</span><span class="s0">new </span><span class="s1">DeleteNeighbourEvent(neighbour));</span>
+                    <span class="s1">}</span>
+
+
+            <span class="s1">}</span>
+        <span class="s1">});</span>
+
+
+
+
+    <span class="s1">}</span>
+
+
+
+
+
+    <span class="s1">@Override</span>
+    <span class="s0">public int </span><span class="s1">getItemCount() {</span>
+        <span class="s0">if </span><span class="s1">(</span><span class="s0">this</span><span class="s1">.mNeighbours == </span><span class="s0">null</span><span class="s1">) {</span>
+                <span class="s0">return </span><span class="s3">0 </span><span class="s1">;</span>
+        <span class="s1">} </span><span class="s0">else</span>
+            <span class="s1">{</span>
+            <span class="s0">return this</span><span class="s1">.mNeighbours.size();</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+        <span class="s0">public interface </span><span class="s1">ItemClickListener {</span>
+            <span class="s0">public void </span><span class="s1">onItemClick(</span><span class="s0">int </span><span class="s1">position);</span>
+        <span class="s1">}</span>
+
+        <span class="s0">public </span><span class="s1">Neighbour getUser(</span><span class="s0">int </span><span class="s1">position) {</span>
+            <span class="s0">return this</span><span class="s1">.mNeighbours.get(position);</span>
+        <span class="s1">}</span>
+
+
+
+    <span class="s0">public class </span><span class="s1">ViewHolder </span><span class="s0">extends </span><span class="s1">RecyclerView.ViewHolder {</span>
+        <span class="s1">@BindView(R.id.item_list_avatar)</span>
+        <span class="s0">public </span><span class="s1">ImageView mNeighbourAvatar;</span>
+        <span class="s1">@BindView(R.id.item_list_name)</span>
+        <span class="s0">public </span><span class="s1">TextView mNeighbourName;</span>
+        <span class="s1">@BindView(R.id.item_list_delete_button)</span>
+        <span class="s0">public </span><span class="s1">ImageButton mDeleteButton;</span>
+
+        <span class="s0">public </span><span class="s1">ViewHolder(View view) {</span>
+            <span class="s0">super</span><span class="s1">(view);</span>
+            <span class="s1">ButterKnife.bind(</span><span class="s0">this</span><span class="s1">, view);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>FavoriteNeighbourFragment.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+FavoriteNeighbourFragment.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.openclassrooms.entrevoisins.ui.neighbour_list;</span>
+
+<span class="s0">import </span><span class="s1">android.content.Context;</span>
+<span class="s0">import </span><span class="s1">android.content.Intent;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle;</span>
+<span class="s0">import </span><span class="s1">android.os.Parcelable;</span>
+<span class="s0">import </span><span class="s1">android.support.v7.widget.DividerItemDecoration;</span>
+<span class="s0">import </span><span class="s1">android.support.v7.widget.LinearLayoutManager;</span>
+<span class="s0">import </span><span class="s1">android.support.v7.widget.RecyclerView;</span>
+<span class="s0">import </span><span class="s1">android.util.Log;</span>
+<span class="s0">import </span><span class="s1">android.view.LayoutInflater;</span>
+<span class="s0">import </span><span class="s1">android.view.View;</span>
+<span class="s0">import </span><span class="s1">android.view.ViewGroup;</span>
+
+<span class="s0">import </span><span class="s1">android.support.v4.app.Fragment;</span>
+
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.R;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.di.DI;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.events.AddFavoriteNeighbourEvent;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.events.DeleteFavoriteNeighbourEvent;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.model.Neighbour;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;</span>
+<span class="s0">import </span><span class="s1">com.openclassrooms.entrevoisins.service.NeighbourApiService;</span>
+
+<span class="s0">import </span><span class="s1">org.greenrobot.eventbus.EventBus;</span>
+<span class="s0">import </span><span class="s1">org.greenrobot.eventbus.Subscribe;</span>
+
+<span class="s0">import </span><span class="s1">java.util.List;</span>
+
+<span class="s0">public class </span><span class="s1">FavoriteNeighbourFragment </span><span class="s0">extends </span><span class="s1">NeighbourFragment </span><span class="s0">implements </span><span class="s1">MyNeighbourRecyclerViewAdapter.ItemClickListener {</span>
+
+
+    <span class="s0">private </span><span class="s1">List&lt;Neighbour&gt; mNeighbours;</span>
+    <span class="s0">private </span><span class="s1">NeighbourApiService mApiService;</span>
+    <span class="s0">private </span><span class="s1">RecyclerView mRecyclerView;</span>
+
+
+
+        <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState);</span>
+        <span class="s1">mApiService = DI.getNeighbourApiService();</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">View onCreateView(LayoutInflater inflater, ViewGroup container,</span>
+                             <span class="s1">Bundle savedInstanceState) {</span>
+        <span class="s1">View view = inflater.inflate(R.layout.fav_fragment_neighbour_list, container, </span><span class="s0">false</span><span class="s1">);</span>
+        <span class="s1">Context context = view.getContext();</span>
+        <span class="s1">mRecyclerView = (RecyclerView) view;</span>
+        <span class="s1">Log.e(</span><span class="s2">&quot;Recylerview: &quot;</span><span class="s1">, view.toString());</span>
+        <span class="s1">mRecyclerView.setLayoutManager(</span><span class="s0">new </span><span class="s1">LinearLayoutManager(context));</span>
+        <span class="s1">mRecyclerView.addItemDecoration(</span><span class="s0">new </span><span class="s1">DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));</span>
+        <span class="s0">return </span><span class="s1">view;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">initList() {</span>
+        <span class="s1">mNeighbours = mApiService.getFavoriteNeighbours();</span>
+        <span class="s1">mRecyclerView.setAdapter(</span><span class="s0">new </span><span class="s1">MyNeighbourRecyclerViewAdapter(getContext(), mNeighbours, </span><span class="s0">this</span><span class="s1">, </span><span class="s0">true</span><span class="s1">));</span>
+
+    <span class="s1">}</span>
+
+    <span class="s0">public static </span><span class="s1">FavoriteNeighbourFragment newInstance() {</span>
+        <span class="s1">FavoriteNeighbourFragment fragment = </span><span class="s0">new </span><span class="s1">FavoriteNeighbourFragment();</span>
+        <span class="s0">return </span><span class="s1">fragment;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onResume() {</span>
+        <span class="s0">super</span><span class="s1">.onResume();</span>
+        <span class="s1">Log.e(</span><span class="s2">&quot;onResume : favorite&quot;</span><span class="s1">, </span><span class="s2">&quot;&quot;</span><span class="s1">);</span>
+
+        <span class="s1">initList();</span>
+    <span class="s1">}</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onStart() {</span>
+        <span class="s0">super</span><span class="s1">.onStart();</span>
+        <span class="s1">Log.e(</span><span class="s2">&quot;Onstart : favorite&quot;</span><span class="s1">, </span><span class="s2">&quot;&quot;</span><span class="s1">);</span>
+        <span class="s1">EventBus.getDefault().register(</span><span class="s0">this</span><span class="s1">);</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onStop() {</span>
+            <span class="s0">super</span><span class="s1">.onStop();</span>
+            <span class="s1">EventBus.getDefault().unregister(</span><span class="s0">this</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Subscribe</span>
+    <span class="s0">public void </span><span class="s1">onDeleteFavoriteNeighbour(DeleteFavoriteNeighbourEvent event) {</span>
+        <span class="s1">mApiService.deleteFavorite(event.neighbour);</span>
+        <span class="s1">initList();</span>
+    <span class="s1">}</span>
+
+
+
+    <span class="s0">public void </span><span class="s1">onItemClick(</span><span class="s0">int </span><span class="s1">position) {</span>
+        <span class="s1">Log.e(</span><span class="s2">&quot;tag fav&quot;</span><span class="s1">,</span><span class="s2">&quot;position : &quot; </span><span class="s1">+ position);</span>
+        <span class="s1">Intent intent = </span><span class="s0">new </span><span class="s1">Intent(mRecyclerView.getContext(), ProfileActivity.</span><span class="s0">class</span><span class="s1">);</span>
+        <span class="s1">intent.putExtra(</span><span class="s2">&quot;neighbour&quot;</span><span class="s1">, (Parcelable) mNeighbours.get(position));</span>
+        <span class="s1">intent.putExtra(</span><span class="s2">&quot;favorite&quot;</span><span class="s1">, </span><span class="s0">true </span><span class="s1">);</span>
+        <span class="s1">startActivity(intent);</span>
+    <span class="s1">}</span>
+
+
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

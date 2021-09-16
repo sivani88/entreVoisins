@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.neighbour_list.ProfileActivity">
+
+    <ImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="415dp"
+        android:layout_height="250dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/image_du__voisin"
+        android:scaleType="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageButton
+        android:id="@+id/imageButtonArriere"
+        android:layout_width="46dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="195dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/boutton_retour_en_arriere"
+        app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_retour_blanc" />
+
+    <TextView
+        android:id="@+id/premierPrenom"
+        android:layout_width="58dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="116dp"
+        android:contentDescription="@string/prenom_du_voisin"
+        android:text="@string/textprenom"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonArriere" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="393dp"
+        android:layout_height="217dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageProfile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="203dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/prenomVoisinCard"
+                android:layout_width="369dp"
+                android:layout_height="35dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/prenon_card"
+                android:paddingLeft="15dp"
+                android:text="@string/prenon_card" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/botton_location"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:contentDescription="@string/txte_adresse"
+                    android:padding="05dp"
+                    android:paddingLeft="15dp"
+                    app:srcCompat="@drawable/ic_baseline_location" />
+
+                <TextView
+                    android:id="@+id/adresse"
+                    android:layout_width="321dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="3"
+                    android:padding="05dp"
+                    android:text="@string/txte_adresse" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/icon_phone"
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:contentDescription="@string/icone_telephone"
+                    android:padding="05dp"
+                    app:srcCompat="@drawable/ic_phone_pink" />
+
+                <TextView
+                    android:id="@+id/text_phone"
+                    android:layout_width="321dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="08dp"
+                    android:layout_weight="3"
+                    android:padding="05dp"
+                    android:text="@string/txte_telephone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:orientation="horizontal">
+
+
+                <ImageButton
+                    android:id="@+id/Internet_button"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="#FDFAFA"
+                    android:contentDescription="@string/extDescription"
+                    android:padding="05dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_internet" />
+
+                <TextView
+                    android:id="@+id/internet"
+                    android:layout_width="333dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="3"
+                    android:padding="05dp"
+                    android:text="@string/facebook" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="368dp"
+        android:layout_height="213dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/aProposDeMoi"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:paddingStart="10dp"
+                android:text="@string/textAProposDeMoi"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:id="@+id/text_aproposdemoi"
+                android:layout_width="match_parent"
+                android:layout_height="222dp"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="135dp"
+        android:clickable="true"
+        android:contentDescription="@string/ajout_favoris"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageProfile"
+        app:layout_constraintVertical_bias="0.157"
+        app:srcCompat="@drawable/ic_star_yellow" />
+
+</android.support.constraint.ConstraintLayout>
