@@ -1,7 +1,5 @@
 package com.openclassrooms.entrevoisins.service;
 
-import android.support.annotation.VisibleForTesting;
-
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import java.util.ArrayList;
@@ -10,7 +8,7 @@ import java.util.List;
 /**
  * Dummy mock for the Api
  */
-public class DummyNeighbourApiService implements  NeighbourApiService {
+public class DummyNeighbourApiService implements NeighbourApiService {
 
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
 
@@ -36,12 +34,15 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
     public boolean boleanFavorite(int isFavorite) {
-        if (isFavorite == 1){
+        if (isFavorite == 1) {
             return true;
-        } return false;
         }
+        return false;
+    }
+
     /**
      * {@inheritDoc}
+     *
      * @param neighbour
      */
     @Override
@@ -49,21 +50,25 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
         neighbours.add(neighbour);
     }
 
+    @Override
     public List<Neighbour> getFavoriteNeighbours() {
         List<Neighbour> favs = new ArrayList<Neighbour>();
-        for (int i = 0; i<neighbours.size(); i++) {
-            if (neighbours.get(i).getIsFavorite()==1) {
+        for (int i = 0; i < neighbours.size(); i++) {
+            if (neighbours.get(i).getIsFavorite() == 1) {
                 favs.add(neighbours.get(i));
             }
         }
         return favs;
-    };
+    }
 
+
+    @Override
     public void addFavorite(Neighbour neighbour) {
         int pos = neighbours.indexOf(neighbour);
         neighbours.get(pos).setIsFavorite(1);
     }
 
+    @Override
     public void deleteFavorite(Neighbour neighbour) {
         for (int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i).equals(neighbour)) {
@@ -71,8 +76,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
             }
         }
     }
-
-
 
 
 }
