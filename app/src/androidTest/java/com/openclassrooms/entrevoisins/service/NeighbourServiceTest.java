@@ -24,7 +24,7 @@ public class NeighbourServiceTest {
     private NeighbourApiService service;
 
     @Before
-    public void setup() {
+   public void setup() {
         service = DI.getNewInstanceApiService();
     }
 

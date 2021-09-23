@@ -30,6 +30,7 @@ public class DummyNeighbourApiService implements NeighbourApiService {
 
     @Override
     public int setFavs(int isFavorite) {
+
         return isFavorite;
     }
 
