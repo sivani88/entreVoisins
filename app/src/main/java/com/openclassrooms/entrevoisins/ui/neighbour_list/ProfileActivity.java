@@ -110,7 +110,7 @@ public class ProfileActivity extends AppCompatActivity {
         mFlecheRetourArriere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            finish();
+                ProfileActivity.this.finish();
 
             }
         });

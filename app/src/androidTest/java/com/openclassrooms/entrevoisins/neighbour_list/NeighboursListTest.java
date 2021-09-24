@@ -9,6 +9,9 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.DrawableMatcher;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
@@ -18,8 +21,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.List;
+
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
@@ -32,12 +36,13 @@ import static org.hamcrest.core.IsNull.notNullValue;
 @RunWith(AndroidJUnit4.class)
 public class NeighboursListTest {
 
+    private NeighbourApiService service;
+
     // This is fixed
     private static int ITEMS_COUNT = 12;
 
     private ListNeighbourActivity mActivity;
 
-    private String mName = "Caroline";
 
     @Rule
     public ActivityTestRule<ListNeighbourActivity> mActivityRule =
@@ -59,7 +64,7 @@ public class NeighboursListTest {
     /**
      * We ensure that our recyclerview is displaying at least on item
      */
-   /* @Test
+    @Test
 
     public void myNeighboursListShouldNotBeEmpty() {
         // First scroll to the position that needs to be matched and click on it.
@@ -67,10 +72,8 @@ public class NeighboursListTest {
                 .check(matches(ViewMatchers.hasMinimumChildCount(1)));
     }
 
-    /**
-     * When we delete an item, the item is no more shownP
-     */
-   /* @Test
+
+    @Test
     public void myNeighboursListDeleteActionShouldRemoveItem() {
         // Given : We remove the element at position 2
         onView(withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
@@ -81,39 +84,27 @@ public class NeighboursListTest {
         onView(withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT - 1));
     }
 
-    @Test
-    public void goodPosition() {
-        onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(1, ViewActions.click()));
-        onView(withId(R.id.floatingActionButton3)).perform(ViewActions.click());
-        onView(withId(R.id.imageButtonArriere)).perform(ViewActions.click());
-
-
-        onView(withId(R.id.list_neighbours)).perform(ViewActions.swipeLeft());
-        onView(withId(R.id.favoris_list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
-
-
-        onView(ViewMatchers.withId(R.id.favoris_list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(0, ViewActions.click()));
-        onView(withId(R.id.floatingActionButton3)).perform(ViewActions.click());
-        pressBack();
-
-
-    }*/
 
     @Test
     public void addFavoritesAndCheck() {
-        onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(2, ViewActions.click()));
-        onView(withId(R.id.floatingActionButton3)).perform(ViewActions.click());
-        //onView(withId(R.id.imageButtonArriere)).perform(ViewActions.click());
-       // onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(3, ViewActions.click()));
-        //onView(withId(R.id.floatingActionButton3)).perform(ViewActions.click());
-        onView(withId(R.id.imageButtonArriere)).perform(ViewActions.click());
-        onView(withId(R.id.list_neighbours)).perform(ViewActions.swipeLeft());
-        onView(withId(R.id.favoris_list_neighbours)).check(withItemCount(3));
+       service = DI.getNeighbourApiService();
+        List<Neighbour> favoriteNeighbours = service.getFavoriteNeighbours();
+        int nbrFavorite = favoriteNeighbours.size();
 
+        onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(5, ViewActions.click()));
+        onView(withId(R.id.floatingActionButton3)).perform(ViewActions.click());
+        onView(withId(R.id.imageButtonArriere)).perform(ViewActions.click());
+        onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.scrollToPosition(10));
+        onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(10, ViewActions.click()));
+        onView(withId(R.id.floatingActionButton3)).perform(ViewActions.click());
+        onView(withId(R.id.imageButtonArriere)).perform(ViewActions.click());
+
+        onView(withId(R.id.list_neighbours)).perform(ViewActions.swipeLeft());
+        onView(withId(R.id.favoris_list_neighbours)).check(withItemCount(nbrFavorite + 2));
 
     }
 
-   /* @Test
+    @Test
     public void starChangeForm() {
 
         onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(5, ViewActions.click()));
@@ -121,10 +112,11 @@ public class NeighboursListTest {
         onView(withId(R.id.floatingActionButton3)).perform(ViewActions.click());
         onView(withId(R.id.floatingActionButton3)).check(matches(new DrawableMatcher(R.drawable.ic_star_pleine_yellow)));
 
-    }*/
+    }
 
 
 }
+
 
 
 
