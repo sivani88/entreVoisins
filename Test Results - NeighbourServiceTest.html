@@ -2,7 +2,7 @@
 <html xmlns:str="http://exslt.org/strings" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Test Results &mdash; NeighboursListTest (1)</title>
+<title>Test Results &mdash; NeighbourServiceTest</title>
 <style type="text/css">
           html {
             height: 100%
@@ -572,8 +572,8 @@ jQuery.cookie = function(name, value, options) {
 <body>
 <div id="container">
 <div id="header">
-<div class="time" xmlns="">3 m 11 s</div>
-<h1>NeighboursListTest (1): <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">5 total, </span><span class="error">5 error</span></strong>
+<div class="time" xmlns="">26 ms</div>
+<h1>NeighbourServiceTest: <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">4 total, </span><span class="passed">4 passed</span></strong>
 </h1>
 <div id="treecontrol">
 <ul>
@@ -589,60 +589,30 @@ jQuery.cookie = function(name, value, options) {
 </div>
 <div id="content">
 <ul id="tree">
-<li xmlns="" class="level top failed open">
+<li xmlns="" class="level top open">
 <span><em class="time">
-<div class="time">3 m 11 s</div>
-</em>com.openclassrooms.entrevoisins.neighbour_list.NeighboursListTest</span>
+<div class="time">26 ms</div>
+</em>com.openclassrooms.entrevoisins.service.NeighbourServiceTest</span>
 <ul>
-<li class="level test failed open">
+<li class="level test">
 <span><em class="time">
-<div class="time">38.88 s</div>
-</em><em class="status">error</em>myNeighboursList_shouldNotBeEmpty</span>
-<ul>
-<li class="text">
-<span class="stderr">android.support.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you t to launch the activity. (test.getActivity() or similar)?<br/>	at dalvik.system.VMStack.getThreadStackTrace(Native Method)<br/>	at java.lang.Thread.getStackTrace(Thread.java:1736)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:88)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:51)<br/>	at android.support.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:312)<br/>	at android.support.test.espresso.ViewInteraction.check(ViewInteraction.java:297)<br/>	at com.openclassrooms.entrevoisins.neighbour_list.NeighboursListTest.myNeighboursList_shouldNotBeEmpty(NeighboursListTest.java:67)<br/>	at java.lang.reflect.Method.invoke(Native Method)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)<br/>	at android.support.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)<br/>	at android.support.test.rule.ActivityTestRule$ActivityStatement.evaluate(ActivityTestRule.java:527)<br/>	at org.junit.rules.RunRules.evaluate(RunRules.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at android.support.test.runner.AndroidJUnit4.run(AndroidJUnit4.java:101)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:27)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)<br/>	at android.support.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)<br/>	at android.support.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:384)<br/>	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2205)<br/></span>
+<div class="time">0 ms</div>
+</em><em class="status">passed</em>deleteNeighbourWithSuccess</span>
 </li>
-</ul>
-</li>
-<li class="level test failed open">
+<li class="level test">
 <span><em class="time">
-<div class="time">38.11 s</div>
-</em><em class="status">error</em>add_1favorites_and_Check</span>
-<ul>
-<li class="text">
-<span class="stderr">android.support.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you t to launch the activity. (test.getActivity() or similar)?<br/>	at dalvik.system.VMStack.getThreadStackTrace(Native Method)<br/>	at java.lang.Thread.getStackTrace(Thread.java:1736)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:88)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:51)<br/>	at android.support.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:312)<br/>	at android.support.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:173)<br/>	at android.support.test.espresso.ViewInteraction.perform(ViewInteraction.java:114)<br/>	at com.openclassrooms.entrevoisins.neighbour_list.NeighboursListTest.add_1favorites_and_Check(NeighboursListTest.java:104)<br/>	at java.lang.reflect.Method.invoke(Native Method)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)<br/>	at android.support.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)<br/>	at android.support.test.rule.ActivityTestRule$ActivityStatement.evaluate(ActivityTestRule.java:527)<br/>	at org.junit.rules.RunRules.evaluate(RunRules.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at android.support.test.runner.AndroidJUnit4.run(AndroidJUnit4.java:101)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:27)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)<br/>	at android.support.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)<br/>	at android.support.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:384)<br/>	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2205)<br/></span>
+<div class="time">0 ms</div>
+</em><em class="status">passed</em>deleteFavorite</span>
 </li>
-</ul>
-</li>
-<li class="level test failed open">
+<li class="level test">
 <span><em class="time">
-<div class="time">37.96 s</div>
-</em><em class="status">error</em>myNeighboursList_deleteAction_shouldRemoveItem</span>
-<ul>
-<li class="text">
-<span class="stderr">android.support.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you t to launch the activity. (test.getActivity() or similar)?<br/>	at dalvik.system.VMStack.getThreadStackTrace(Native Method)<br/>	at java.lang.Thread.getStackTrace(Thread.java:1736)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:88)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:51)<br/>	at android.support.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:312)<br/>	at android.support.test.espresso.ViewInteraction.check(ViewInteraction.java:297)<br/>	at com.openclassrooms.entrevoisins.neighbour_list.NeighboursListTest.myNeighboursList_deleteAction_shouldRemoveItem(NeighboursListTest.java:76)<br/>	at java.lang.reflect.Method.invoke(Native Method)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)<br/>	at android.support.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)<br/>	at android.support.test.rule.ActivityTestRule$ActivityStatement.evaluate(ActivityTestRule.java:527)<br/>	at org.junit.rules.RunRules.evaluate(RunRules.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at android.support.test.runner.AndroidJUnit4.run(AndroidJUnit4.java:101)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:27)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)<br/>	at android.support.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)<br/>	at android.support.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:384)<br/>	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2205)<br/></span>
+<div class="time">0 ms</div>
+</em><em class="status">passed</em>addFavorite</span>
 </li>
-</ul>
-</li>
-<li class="level test failed open">
+<li class="level test">
 <span><em class="time">
-<div class="time">37.94 s</div>
-</em><em class="status">error</em>goodName_Is_controle</span>
-<ul>
-<li class="text">
-<span class="stderr">android.support.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you t to launch the activity. (test.getActivity() or similar)?<br/>	at dalvik.system.VMStack.getThreadStackTrace(Native Method)<br/>	at java.lang.Thread.getStackTrace(Thread.java:1736)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:88)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:51)<br/>	at android.support.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:312)<br/>	at android.support.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:173)<br/>	at android.support.test.espresso.ViewInteraction.perform(ViewInteraction.java:114)<br/>	at com.openclassrooms.entrevoisins.neighbour_list.NeighboursListTest.goodName_Is_controle(NeighboursListTest.java:86)<br/>	at java.lang.reflect.Method.invoke(Native Method)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)<br/>	at android.support.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)<br/>	at android.support.test.rule.ActivityTestRule$ActivityStatement.evaluate(ActivityTestRule.java:527)<br/>	at org.junit.rules.RunRules.evaluate(RunRules.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at android.support.test.runner.AndroidJUnit4.run(AndroidJUnit4.java:101)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:27)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)<br/>	at android.support.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)<br/>	at android.support.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:384)<br/>	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2205)<br/></span>
-</li>
-</ul>
-</li>
-<li class="level test failed open">
-<span><em class="time">
-<div class="time">37.93 s</div>
-</em><em class="status">error</em>star_change_form</span>
-<ul>
-<li class="text">
-<span class="stderr">android.support.test.espresso.NoActivityResumedException: No activities in stage RESUMED. Did you t to launch the activity. (test.getActivity() or similar)?<br/>	at dalvik.system.VMStack.getThreadStackTrace(Native Method)<br/>	at java.lang.Thread.getStackTrace(Thread.java:1736)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.getUserFriendlyError(DefaultFailureHandler.java:88)<br/>	at android.support.test.espresso.base.DefaultFailureHandler.handle(DefaultFailureHandler.java:51)<br/>	at android.support.test.espresso.ViewInteraction.waitForAndHandleInteractionResults(ViewInteraction.java:312)<br/>	at android.support.test.espresso.ViewInteraction.desugaredPerform(ViewInteraction.java:173)<br/>	at android.support.test.espresso.ViewInteraction.perform(ViewInteraction.java:114)<br/>	at com.openclassrooms.entrevoisins.neighbour_list.NeighboursListTest.star_change_form(NeighboursListTest.java:119)<br/>	at java.lang.reflect.Method.invoke(Native Method)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)<br/>	at android.support.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)<br/>	at android.support.test.rule.ActivityTestRule$ActivityStatement.evaluate(ActivityTestRule.java:527)<br/>	at org.junit.rules.RunRules.evaluate(RunRules.java:20)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at android.support.test.runner.AndroidJUnit4.run(AndroidJUnit4.java:101)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:27)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)<br/>	at android.support.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)<br/>	at android.support.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:384)<br/>	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2205)<br/></span>
-</li>
-</ul>
+<div class="time">26 ms</div>
+</em><em class="status">passed</em>getNeighboursWithSuccess</span>
 </li>
 </ul>
 </li>
@@ -650,7 +620,7 @@ jQuery.cookie = function(name, value, options) {
 </div>
 </div>
 <div id="footer">
-<p>Generated by Android Studio on 23/09/21 11:14</p>
+<p>Generated by Android Studio on 05/10/21 15:17</p>
 </div>
 </body>
 </html>

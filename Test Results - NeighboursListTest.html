@@ -2,7 +2,7 @@
 <html xmlns:str="http://exslt.org/strings" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Test Results &mdash; getFavoriteNeighbo...()</title>
+<title>Test Results &mdash; NeighboursListTest</title>
 <style type="text/css">
           html {
             height: 100%
@@ -572,8 +572,8 @@ jQuery.cookie = function(name, value, options) {
 <body>
 <div id="container">
 <div id="header">
-<div class="time" xmlns="">268 ms</div>
-<h1>getFavoriteNeighbo...(): <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">1 total, </span><span class="error">1 error</span></strong>
+<div class="time" xmlns="">15.38 s</div>
+<h1>NeighboursListTest: <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">6 total, </span><span class="passed">6 passed</span></strong>
 </h1>
 <div id="treecontrol">
 <ul>
@@ -589,20 +589,40 @@ jQuery.cookie = function(name, value, options) {
 </div>
 <div id="content">
 <ul id="tree">
-<li xmlns="" class="level top failed open">
+<li xmlns="" class="level top open">
 <span><em class="time">
-<div class="time">268 ms</div>
-</em>com.openclassrooms.entrevoisins.service.DummyNeighbourApiServiceTest</span>
+<div class="time">15.38 s</div>
+</em>com.openclassrooms.entrevoisins.neighbour_list.NeighboursListTest</span>
 <ul>
-<li class="level test failed open">
+<li class="level test">
 <span><em class="time">
-<div class="time">268 ms</div>
-</em><em class="status">error</em>getFavoriteNeighbours</span>
-<ul>
-<li class="text">
-<span class="stderr">java.lang.AssertionError: expected:&lt;0&gt; but was:&lt;2&gt;<br/>	at org.junit.Assert.fail(Assert.java:88)<br/>	at org.junit.Assert.failNotEquals(Assert.java:834)<br/>	at org.junit.Assert.assertEquals(Assert.java:645)<br/>	at org.junit.Assert.assertEquals(Assert.java:631)<br/>	at com.openclassrooms.entrevoisins.service.DummyNeighbourApiServiceTest.getFavoriteNeighbours(DummyNeighbourApiServiceTest.java:34)<br/>	at java.lang.reflect.Method.invoke(Native Method)<br/>	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)<br/>	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)<br/>	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)<br/>	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)<br/>	at android.support.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)<br/>	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)<br/>	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at org.junit.runners.Suite.runChild(Suite.java:128)<br/>	at org.junit.runners.Suite.runChild(Suite.java:27)<br/>	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)<br/>	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)<br/>	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)<br/>	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)<br/>	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)<br/>	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)<br/>	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)<br/>	at android.support.test.internal.runner.TestExecutor.execute(TestExecutor.java:56)<br/>	at android.support.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:384)<br/>	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2205)<br/></span>
+<div class="time">4.67 s</div>
+</em><em class="status">passed</em>starChangeForm</span>
 </li>
-</ul>
+<li class="level test">
+<span><em class="time">
+<div class="time">2.58 s</div>
+</em><em class="status">passed</em>myNeighboursListDeleteActionShouldRemoveItem</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">1.81 s</div>
+</em><em class="status">passed</em>deleteFavoriteAndCheck</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">3.38 s</div>
+</em><em class="status">passed</em>addFavoritesAndCheck</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">916 ms</div>
+</em><em class="status">passed</em>myNeighboursListShouldNotBeEmpty</span>
+</li>
+<li class="level test">
+<span><em class="time">
+<div class="time">2.03 s</div>
+</em><em class="status">passed</em>infoActivity</span>
 </li>
 </ul>
 </li>
@@ -610,7 +630,7 @@ jQuery.cookie = function(name, value, options) {
 </div>
 </div>
 <div id="footer">
-<p>Generated by Android Studio on 23/09/21 11:08</p>
+<p>Generated by Android Studio on 05/10/21 15:16</p>
 </div>
 </body>
 </html>
