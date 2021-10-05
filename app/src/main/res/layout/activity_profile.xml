@@ -21,31 +21,31 @@
 
     <ImageButton
         android:id="@+id/imageButtonArriere"
-        android:layout_width="46dp"
-        android:layout_height="22dp"
+        android:layout_width="96dp"
+        android:layout_height="45dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="195dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/boutton_retour_en_arriere"
         app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.272"
         app:srcCompat="@drawable/ic_retour_blanc" />
 
     <TextView
         android:id="@+id/premierPrenom"
-        android:layout_width="58dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="116dp"
+        android:layout_width="209dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="88dp"
         android:contentDescription="@string/prenom_du_voisin"
         android:text="@string/textprenom"
         android:textColor="@android:color/white"
-        android:textSize="15sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonArriere" />
 
@@ -53,23 +53,26 @@
         android:id="@+id/cardView"
         android:layout_width="393dp"
         android:layout_height="217dp"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageProfile">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="203dp"
+            android:layout_height="209dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/prenomVoisinCard"
                 android:layout_width="369dp"
                 android:layout_height="35dp"
-                android:layout_margin="8dp"
+                android:layout_margin="12dp"
                 android:contentDescription="@string/prenon_card"
                 android:paddingLeft="15dp"
-                android:text="@string/prenon_card" />
+                android:text="@string/prenon_card"
+                android:textColor="@color/colorBlack" />
 
             <View
                 android:id="@+id/view"
@@ -165,8 +168,9 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:layout_width="368dp"
-        android:layout_height="213dp"
+        android:layout_width="393dp"
+        android:layout_height="168dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -174,7 +178,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="182dp"
             android:orientation="vertical">
 
             <TextView
@@ -193,10 +197,12 @@
             <TextView
                 android:id="@+id/text_aproposdemoi"
                 android:layout_width="match_parent"
-                android:layout_height="222dp"
-                android:padding="16dp"
-                android:textColor="@android:color/black"
-                android:textSize="10sp"
+                android:layout_height="130dp"
+                android:elegantTextHeight="true"
+                android:padding="18dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorGrey"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

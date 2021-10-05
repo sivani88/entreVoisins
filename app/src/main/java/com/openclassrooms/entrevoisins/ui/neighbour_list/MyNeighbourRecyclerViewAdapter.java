@@ -1,19 +1,13 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.content.ClipData;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -21,7 +15,6 @@ import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteFavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -31,20 +24,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-
-public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder>  {
+public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
     private Context context;
-    private final  List<Neighbour> mNeighbours;
+    private final List<Neighbour> mNeighbours;
     private ItemClickListener mItemClickListener;
     private Boolean isFavorite;
 
 
-
-    public MyNeighbourRecyclerViewAdapter(Context context, List<Neighbour> items, NeighbourFragment mItemClickListener,  Boolean isFavorite) {
+    public MyNeighbourRecyclerViewAdapter(Context context, List<Neighbour> items, NeighbourFragment mItemClickListener, Boolean isFavorite) {
         super();
         mNeighbours = items;
         this.context = context;
-        this.mItemClickListener =  mItemClickListener;
+        this.mItemClickListener = mItemClickListener;
         this.isFavorite = isFavorite;
 
     }
@@ -72,8 +63,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             public void onClick(View view) {
                 if (mItemClickListener != null) {
                     int position = holder.getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION){
-                       // mItemClickListener.onItemClick((AdapterView) view.getParent(), view, position, holder.getItemId());
+                    if (position != RecyclerView.NO_POSITION) {
                         mItemClickListener.onItemClick(position);
                     }
                 }
@@ -81,49 +71,41 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         });
 
 
-
-
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                    if (isFavorite) {
-                        EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(neighbour));
-                    } else {
-                        EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
-                    }
+                if (isFavorite) {
+                    EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(neighbour));
+                } else {
+                    EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
+                }
 
 
             }
         });
 
 
-
-
     }
-
-
-
 
 
     @Override
     public int getItemCount() {
         if (this.mNeighbours == null) {
-                return 0 ;
-        } else
-            {
+            return 0;
+        } else {
             return this.mNeighbours.size();
         }
 
     }
-        public interface ItemClickListener {
-            public void onItemClick(int position);
-        }
 
-        public Neighbour getUser(int position) {
-            return this.mNeighbours.get(position);
-        }
+    public interface ItemClickListener {
+        public void onItemClick(int position);
+    }
 
+    public Neighbour getUser(int position) {
+        return this.mNeighbours.get(position);
+    }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {

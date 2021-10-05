@@ -7,20 +7,14 @@ import android.os.Parcelable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.support.v4.app.Fragment;
-
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.events.AddFavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.events.DeleteFavoriteNeighbourEvent;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import org.greenrobot.eventbus.EventBus;
@@ -34,10 +28,10 @@ public class FavoriteNeighbourFragment extends NeighbourFragment implements MyNe
     private List<Neighbour> mNeighbours;
     private NeighbourApiService mApiService;
     private RecyclerView mRecyclerView;
+    private static final String NEIGHBOUR_EXTRA = "neighbour";
 
 
-
-        @Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mApiService = DI.getNeighbourApiService();
@@ -49,7 +43,7 @@ public class FavoriteNeighbourFragment extends NeighbourFragment implements MyNe
         View view = inflater.inflate(R.layout.fav_fragment_neighbour_list, container, false);
         Context context = view.getContext();
         mRecyclerView = (RecyclerView) view;
-        Log.e("Recylerview: ", view.toString());
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         return view;
@@ -69,22 +63,20 @@ public class FavoriteNeighbourFragment extends NeighbourFragment implements MyNe
     @Override
     public void onResume() {
         super.onResume();
-        Log.e("onResume : favorite", "");
-
         initList();
     }
+
     @Override
     public void onStart() {
         super.onStart();
-        Log.e("Onstart : favorite", "");
         EventBus.getDefault().register(this);
 
     }
 
     @Override
     public void onStop() {
-            super.onStop();
-            EventBus.getDefault().unregister(this);
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     @Subscribe
@@ -94,15 +86,13 @@ public class FavoriteNeighbourFragment extends NeighbourFragment implements MyNe
     }
 
 
-
     public void onItemClick(int position) {
-        Log.e("tag fav","position : " + position);
+
         Intent intent = new Intent(mRecyclerView.getContext(), ProfileActivity.class);
-        intent.putExtra("neighbour", (Parcelable) mNeighbours.get(position));
-        intent.putExtra("favorite", true );
+        intent.putExtra(NEIGHBOUR_EXTRA, (Parcelable) mNeighbours.get(position));
+        intent.putExtra(NEIGHBOUR_EXTRA, true);
         startActivity(intent);
     }
-
 
 
 }

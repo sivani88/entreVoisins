@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +28,7 @@ public class FullNeighbourFragment extends NeighbourFragment implements MyNeighb
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
-
+    private static final String NEIGHBOUR_EXTRA = "neighbour";
 
     /**
      * Create and return a new instance
@@ -98,9 +96,8 @@ public class FullNeighbourFragment extends NeighbourFragment implements MyNeighb
 
     @Override
     public void onItemClick(int position) {
-        Log.e("tag","position : " + position);
         Intent intent = new Intent(mRecyclerView.getContext(), ProfileActivity.class);
-        intent.putExtra("neighbour", (Parcelable) mNeighbours.get(position));
+        intent.putExtra(NEIGHBOUR_EXTRA, (Parcelable) mNeighbours.get(position));
 
         startActivity(intent);
     }

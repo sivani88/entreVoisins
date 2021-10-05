@@ -89,7 +89,6 @@ public class ProfileActivity extends AppCompatActivity {
       mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-                Log.e("Favorite = ", String.valueOf(favorite));
                 if (favorite) {
                     mApiService.deleteFavorite(neighbour);
                     mFloatingActionButton.setImageResource(R.drawable.ic_star_yellow);

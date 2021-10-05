@@ -37,9 +37,8 @@ public interface NeighbourApiService {
 
     void deleteFavorite(Neighbour neighbour);
 
-    int setFavs(int isFavorite);
+    int setFavorites(int isFavorite);
 
-    boolean boleanFavorite = true;
 
 }
 

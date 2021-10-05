@@ -29,17 +29,11 @@ public class DummyNeighbourApiService implements NeighbourApiService {
     }
 
     @Override
-    public int setFavs(int isFavorite) {
+    public int setFavorites(int isFavorite) {
 
         return isFavorite;
     }
 
-    public boolean boleanFavorite(int isFavorite) {
-        if (isFavorite == 1) {
-            return true;
-        }
-        return false;
-    }
 
     /**
      * {@inheritDoc}
@@ -53,20 +47,21 @@ public class DummyNeighbourApiService implements NeighbourApiService {
 
     @Override
     public List<Neighbour> getFavoriteNeighbours() {
-        List<Neighbour> favs = new ArrayList<Neighbour>();
+        List<Neighbour> favorites = new ArrayList<Neighbour>();
         for (int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i).getIsFavorite() == 1) {
-                favs.add(neighbours.get(i));
+                favorites.add(neighbours.get(i));
             }
         }
-        return favs;
+        return favorites;
     }
-
+    //On fait une boucle for dans la liste des voisins pour recuperer la liste des favoris les voisins en 1
 
     @Override
     public void addFavorite(Neighbour neighbour) {
         int pos = neighbours.indexOf(neighbour);
         neighbours.get(pos).setIsFavorite(1);
+        // dans la liste de voisin se voissin a ette position sera retourner en tant que favoris
     }
 
     @Override

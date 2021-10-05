@@ -1,16 +1,15 @@
 package com.openclassrooms.entrevoisins.service;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.di.DI;
-
 import androidx.navigation.fragment.NavHostFragment;
+
+import com.openclassrooms.entrevoisins.R;
 
 public class FirstFragment extends Fragment {
 

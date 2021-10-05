@@ -58,7 +58,7 @@ public class NeighbourServiceTest {
         List<Neighbour> neighbours = service.getNeighbours();
         List<Neighbour> favoriteNeighbours = service.getFavoriteNeighbours();
 
-        service.setFavs(3);
+        service.setFavorites(3);
         Neighbour favoriteNeighbour = neighbours.get(3);
         service.deleteFavorite(favoriteNeighbour);
 

@@ -42,7 +42,6 @@ public class Neighbour implements Parcelable {
 
     public int isFavorite;
 
-    boolean isBooleanFavorite;
 
     /**
      * Constructor
@@ -75,9 +74,6 @@ public class Neighbour implements Parcelable {
 
     }
 
-    public Neighbour(boolean isBooleanFavorite) {
-        this.isBooleanFavorite = isBooleanFavorite;
-    }
 
     public Neighbour(Parcel in) {
         id = in.readLong();
@@ -159,13 +155,6 @@ public class Neighbour implements Parcelable {
         return isFavorite;
     }
 
-    public boolean isBooleanFavorite() {
-        return isBooleanFavorite;
-    }
-
-    public void setBooleanFavorite(boolean booleanFavorite) {
-        isBooleanFavorite = booleanFavorite;
-    }
 
     @Override
     public boolean equals(Object o) {
